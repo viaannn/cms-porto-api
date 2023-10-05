@@ -1,2 +1,8 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:cms-porto-db}?useSSL=false
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:root}

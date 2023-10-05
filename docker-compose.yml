@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  database:
+    container_name: postgresql
+    image: 'postgres:latest'
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      - 'POSTGRES_USER=root'
+      - 'POSTGRES_DB=cms-porto-db'
+      - 'POSTGRES_PASSWORD=root'
+
+  cms-porto-app:
+    container_name: cms-porto-app
+    depends_on:
+      - database
+    restart: always
+    env_file:
+      - .env
+    image: 'cms-porto-app:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8081:${SERVER_PORT}'

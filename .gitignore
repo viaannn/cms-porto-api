@@ -3,6 +3,12 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!cms-porto-controller/target
+!cms-porto-entity/target
+!cms-porto-model/target
+!cms-porto-repository/target
+!cms-porto-security/target
+!cms-porto-service/target
 
 ### STS ###
 .apt_generated
